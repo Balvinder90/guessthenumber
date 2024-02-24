@@ -1,0 +1,421 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sarpanch";
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 20;
+}
+
+body::before {
+  content: "";
+  background-image: url("../img/bg.webp");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  opacity: 0.05;
+  z-index: -10;
+}
+
+.game__heading {
+  color: #ffffff;
+  font-size: 4.8rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.green {
+  color: #b4d03d;
+}
+
+.orange {
+  color: #ffa527;
+}
+
+.red {
+  color: #e64242;
+}
+
+.container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.opacity {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttons__button--orange {
+  font-family: "Sarpanch";
+  font-size: 2.6rem;
+  padding: 1.5rem 1rem;
+  width: 22.3rem;
+  border-radius: 1.3rem;
+  color: #262626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  transition: all 0.3s;
+  background-color: #ffa527;
+}
+.buttons__button--orange:hover {
+  background-color: #ffba5a;
+  cursor: pointer;
+}
+.buttons__button--orange:focus {
+  background-color: #ffba5a;
+}
+.buttons__button--green {
+  font-family: "Sarpanch";
+  font-size: 2.6rem;
+  padding: 1.5rem 1rem;
+  width: 22.3rem;
+  border-radius: 1.3rem;
+  color: #262626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  transition: all 0.3s;
+  background-color: #b4d03d;
+}
+.buttons__button--green:hover {
+  background-color: #c4da66;
+  cursor: pointer;
+}
+.buttons__button--green:focus {
+  background-color: #c4da66;
+}
+.buttons__button--red {
+  font-family: "Sarpanch";
+  font-size: 2.6rem;
+  padding: 1.5rem 1rem;
+  width: 22.3rem;
+  border-radius: 1.3rem;
+  color: #262626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  transition: all 0.3s;
+  background-color: #e64242;
+}
+.buttons__button--red:hover {
+  background-color: #ec6f6f;
+  cursor: pointer;
+}
+.buttons__button--red:focus {
+  background-color: #ec6f6f;
+}
+.buttons__split {
+  display: flex;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+.buttons__input {
+  font-family: "Sarpanch";
+  background-color: transparent;
+  border: 0.1rem solid #ffffff;
+  color: #ffffff;
+  text-align: center;
+  outline: none;
+  border-radius: 1.5rem;
+  font-size: 2.6rem;
+  padding: 1.5rem 1rem;
+  width: 22.3rem;
+  transition: all 0.3s;
+}
+.buttons__input::-moz-placeholder {
+  font-family: "Sarpanch";
+  font-size: 2.6rem;
+  color: #ffffff;
+}
+.buttons__input::placeholder {
+  font-family: "Sarpanch";
+  font-size: 2.6rem;
+  color: #ffffff;
+}
+.buttons__input:focus {
+  background-color: #ffffff;
+  color: #262626;
+}
+
+.game__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question__heading {
+  color: #ffffff;
+  font-size: 10rem;
+  font-weight: 400;
+  text-align: center;
+  animation: float 1.5s infinite;
+}
+
+.information > p {
+  font-family: "Sarpanch";
+  font-size: 2.6rem;
+  color: #ffffff;
+}
+.information__score {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 100em) {
+  .container {
+    width: 160rem;
+  }
+}
+@media only screen and (max-width: 64.0625em) {
+  .container {
+    gap: 8rem;
+  }
+  .game__heading {
+    font-size: 4rem;
+  }
+  .buttons__button--orange {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 20rem;
+  }
+  .buttons__button--green {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 20rem;
+  }
+  .buttons__button--red {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 20rem;
+  }
+  .buttons__input {
+    font-size: 2rem;
+    width: 20rem;
+  }
+  .buttons__input::-moz-placeholder {
+    font-size: 2rem;
+  }
+  .buttons__input::placeholder {
+    font-size: 2rem;
+  }
+  .question__heading {
+    font-size: 7rem;
+  }
+  .information > p {
+    font-size: 2rem;
+  }
+  .information__score {
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (max-width: 60.0625em) {
+  .game__heading {
+    font-size: 3.8rem;
+  }
+  .buttons__button--orange {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 18rem;
+  }
+  .buttons__button--green {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 18rem;
+  }
+  .buttons__button--red {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 18rem;
+  }
+  .buttons__input {
+    font-size: 2rem;
+    width: 18rem;
+  }
+  .buttons__input::-moz-placeholder {
+    font-size: 2rem;
+  }
+  .buttons__input::placeholder {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 55.5625em) {
+  .buttons__split {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    gap: 2rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .container {
+    width: 95%;
+  }
+  .game__heading {
+    font-size: 3rem;
+  }
+  .buttons__button--orange {
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 13rem;
+    border-radius: 1rem;
+  }
+  .buttons__button--green {
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 13rem;
+    border-radius: 1rem;
+  }
+  .buttons__button--red {
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 13rem;
+    border-radius: 1rem;
+  }
+  .buttons__input {
+    font-size: 1.6rem;
+    width: 13rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  .buttons__input::-moz-placeholder {
+    font-size: 1.6rem;
+  }
+  .buttons__input::placeholder {
+    font-size: 1.6rem;
+  }
+  .question__heading {
+    font-size: 5rem;
+  }
+  .information > p {
+    font-size: 1.6rem;
+  }
+  .information__score {
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (max-width: 23.8125em) {
+  .container {
+    gap: 6rem;
+  }
+  .buttons__button--orange {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .buttons__button--green {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .buttons__button--red {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .buttons__input {
+    font-size: 1.6rem;
+    width: 12rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+  }
+  .buttons__input::-moz-placeholder {
+    font-size: 1.6rem;
+  }
+  .buttons__input::placeholder {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-height: 460px) {
+  .container {
+    gap: 4rem;
+  }
+  .game__heading {
+    font-size: 3rem;
+  }
+  .buttons__button--orange {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .buttons__button--green {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .buttons__button--red {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+  .buttons__input {
+    font-size: 1.6rem;
+    width: 12rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+  }
+  .buttons__input::-moz-placeholder {
+    font-size: 1.6rem;
+  }
+  .buttons__input::placeholder {
+    font-size: 1.6rem;
+  }
+  .question__heading {
+    font-size: 5rem;
+  }
+  .information > p {
+    font-size: 1.6rem;
+  }
+  .information__score {
+    margin-bottom: 1rem;
+  }
+}/*# sourceMappingURL=styles.css.map */

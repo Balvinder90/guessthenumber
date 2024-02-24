@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <section class="container">
+      <h1 class="game__heading">
+        Guess the <span class="green">number</span> between
+        <span class="orange">1</span> and <span class="red">50</span>
+      </h1>
+      <div class="game__container">
+        <div class="buttons">
+          <button class="buttons__button--orange new-game">New Game</button>
+          <div class="buttons__split">
+            <input
+              class="buttons__input guess"
+              placeholder="..."
+              type="number"
+              min="1"
+              max="50"
+            />
+            <button class="buttons__button--green check">Guess</button>
+          </div>
+          <button class="buttons__button--red give-up">Give up</button>
+        </div>
+        <div class="question">
+          <h2 class="question__heading number">?</h2>
+        </div>
+        <div class="information">
+          <p class="information__score">
+            <span class="orange">Score</span> : <span class="score">20</span>
+          </p>
+          <p class="information__highscore">
+            <span class="green">High</span> Score :
+            <span class="highscore">0</span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>

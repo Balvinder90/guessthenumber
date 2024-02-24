@@ -1,0 +1,491 @@
+// CSS Variables
+$dark-grey: #262626;
+$orange: #ffa527;
+$orange-hover: lighten(#ffa527, 10%);
+$green: #b4d03d;
+$green-hover: lighten(#b4d03d, 10%);
+$red: #e64242;
+$red-hover: lighten(#e64242, 10%);
+$white: #ffffff;
+$font-choice: 'Sarpanch';
+
+// Mixins
+@mixin button {
+  font-family: $font-choice;
+  font-size: 2.6rem;
+  padding: 1.5rem 1rem;
+  width: 22.3rem;
+  border-radius: 1.3rem;
+  color: $dark-grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  transition: all 0.3s;
+}
+
+// Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-choice;
+  background-color: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 20;
+}
+
+body::before {
+  content: '';
+  background-image: url('../img/bg.webp');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  opacity: 0.05;
+  z-index: -10;
+}
+
+.game__heading {
+  color: $white;
+  font-size: 4.8rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+// Utility Classes
+.green {
+  color: $green;
+}
+
+.orange {
+  color: $orange;
+}
+
+.red {
+  color: $red;
+}
+
+.container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.opacity {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// Animations
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+// Components
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__button {
+    &--orange {
+      @include button;
+      background-color: $orange;
+
+      &:hover {
+        background-color: $orange-hover;
+        cursor: pointer;
+      }
+      &:focus {
+        background-color: $orange-hover;
+      }
+    }
+
+    &--green {
+      @include button;
+      background-color: $green;
+      &:hover {
+        background-color: $green-hover;
+        cursor: pointer;
+      }
+      &:focus {
+        background-color: $green-hover;
+      }
+    }
+
+    &--red {
+      @include button;
+      background-color: $red;
+      &:hover {
+        background-color: $red-hover;
+        cursor: pointer;
+      }
+      &:focus {
+        background-color: $red-hover;
+      }
+    }
+  }
+
+  &__split {
+    display: flex;
+    margin: 2rem 0;
+    gap: 2rem;
+  }
+
+  &__input {
+    font-family: $font-choice;
+    background-color: transparent;
+    border: 0.1rem solid $white;
+    color: $white;
+    text-align: center;
+    outline: none;
+    border-radius: 1.5rem;
+    font-size: 2.6rem;
+    padding: 1.5rem 1rem;
+    width: 22.3rem;
+    transition: all 0.3s;
+
+    &::placeholder {
+      font-family: $font-choice;
+      font-size: 2.6rem;
+      color: $white;
+    }
+
+    &:focus {
+      background-color: $white;
+      color: $dark-grey;
+    }
+  }
+}
+
+.game {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.question {
+  &__heading {
+    color: $white;
+    font-size: 10rem;
+    font-weight: 400;
+    text-align: center;
+    animation: float 1.5s infinite;
+  }
+}
+
+.information {
+  & > p {
+    font-family: $font-choice;
+    font-size: 2.6rem;
+    color: $white;
+  }
+
+  &__score {
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (min-width: 100em) {
+  .container {
+    width: 160rem;
+  }
+}
+
+// 1025px Screen Sizes
+@media only screen and (max-width: 64.0625em) {
+  .container {
+    gap: 8rem;
+  }
+
+  .game__heading {
+    font-size: 4rem;
+  }
+
+  @mixin button {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 20rem;
+  }
+
+  .buttons {
+    &__button {
+      &--orange {
+        @include button;
+      }
+
+      &--green {
+        @include button;
+      }
+
+      &--red {
+        @include button;
+      }
+    }
+
+    &__input {
+      font-size: 2rem;
+      width: 20rem;
+
+      &::placeholder {
+        font-size: 2rem;
+      }
+    }
+  }
+  .question {
+    &__heading {
+      font-size: 7rem;
+    }
+  }
+
+  .information {
+    & > p {
+      font-size: 2rem;
+    }
+
+    &__score {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// 960px Screen Sizes
+@media only screen and (max-width: 60.0625em) {
+  .game__heading {
+    font-size: 3.8rem;
+  }
+
+  @mixin button {
+    font-size: 2rem;
+    padding: 1.5rem 1rem;
+    width: 18rem;
+  }
+
+  .buttons {
+    &__button {
+      &--orange {
+        @include button;
+      }
+
+      &--green {
+        @include button;
+      }
+
+      &--red {
+        @include button;
+      }
+    }
+
+    &__input {
+      font-size: 2rem;
+      width: 18rem;
+
+      &::placeholder {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+// 889px Screen Sizes
+@media only screen and (max-width: 55.5625em) {
+  .buttons {
+    &__split {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+      gap: 2rem;
+    }
+  }
+}
+
+// 600px Screen Sizes
+@media only screen and (max-width: 37.5em) {
+  .container {
+    width: 95%;
+  }
+
+  .game__heading {
+    font-size: 3rem;
+  }
+
+  @mixin button {
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 13rem;
+    border-radius: 1rem;
+  }
+
+  .buttons {
+    &__button {
+      &--orange {
+        @include button;
+      }
+
+      &--green {
+        @include button;
+      }
+
+      &--red {
+        @include button;
+      }
+    }
+
+    &__input {
+      font-size: 1.6rem;
+      width: 13rem;
+      padding: 1rem;
+      border-radius: 1rem;
+
+      &::placeholder {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .question {
+    &__heading {
+      font-size: 5rem;
+    }
+  }
+
+  .information {
+    & > p {
+      font-size: 1.6rem;
+    }
+
+    &__score {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// 381px Screen Sizes
+@media only screen and (max-width: 23.8125em) {
+  .container {
+    gap: 6rem;
+  }
+
+  @mixin button {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+
+  .buttons {
+    &__button {
+      &--orange {
+        @include button;
+      }
+
+      &--green {
+        @include button;
+      }
+
+      &--red {
+        @include button;
+      }
+    }
+
+    &__input {
+      font-size: 1.6rem;
+      width: 12rem;
+      padding: 0.8rem;
+      border-radius: 1rem;
+
+      &::placeholder {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+// Landscape Orientation
+@media screen and (max-height: 460px) {
+  .container {
+    gap: 4rem;
+  }
+
+  .game__heading {
+    font-size: 3rem;
+  }
+
+  @mixin button {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+    width: 12rem;
+    border-radius: 1rem;
+  }
+
+  .buttons {
+    &__button {
+      &--orange {
+        @include button;
+      }
+
+      &--green {
+        @include button;
+      }
+
+      &--red {
+        @include button;
+      }
+    }
+
+    &__input {
+      font-size: 1.6rem;
+      width: 12rem;
+      padding: 0.8rem;
+      border-radius: 1rem;
+
+      &::placeholder {
+        font-size: 1.6rem;
+      }
+    }
+  }
+  .question {
+    &__heading {
+      font-size: 5rem;
+    }
+  }
+  .information {
+    & > p {
+      font-size: 1.6rem;
+    }
+
+    &__score {
+      margin-bottom: 1rem;
+    }
+  }
+}
